@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Profile{% endblock %}
+
+{% block content %}
+<div class="link">
+      <a href="/">Home</a> > Profile
+</div>
+
+<div class="container">
+      <h2 class="text-center mt-4 mb-4">Welcome to your profile page, {{ profile.username }}!</h2>
+      <p><b>Email:</b> {{ profile.email }}</p>
+      <p><b>Username:</b> {{ profile.username }}</p>
+      <a class="text-danger" href="{% url 'password_change' %}">Change password</a>
+      <div class="text-center mt-4">
+            <a class="btn bg-blue text-white btn-border--blue" href="{% url 'home' %}">Go back to home page</a>
+      </div>
+</div>
+{% endblock %}

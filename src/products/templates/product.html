@@ -1,0 +1,57 @@
+<div class="col-sm-12 col-md-6 col-lg-4 mb-5">
+   <div class="card" style="width: 18rem; margin:auto;">
+      <a href="{{ product.get_absolute_url }}">
+         <img class="card-img-top" src="{{ MEDIA_URL }}{{ product.image }}" alt="Card image cap">
+      </a>
+      <div class="card-body">
+         <a href="{{ product.get_absolute_url }}">
+            <h5 class="card-title text-center">{{ product.title }}</h5>
+         </a>
+         <ul>
+            {% if product.feature_1 != None %}
+            <li>{{ product.feature_1|truncatewords:5 }}</li>
+            {% endif %}
+
+            {% if product.feature_1 != None %}
+            <li>{{ product.feature_2|truncatewords:5 }}</li>
+            {% endif %}
+
+            {% if product.feature_1 != None %}
+            <li>{{ product.feature_3|truncatewords:5 }}</li>
+            {% endif %}
+         </ul>
+         <p class="card-text">{{ product.content|truncatewords:7 }}</p>
+
+         <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+               <div class="card-price">
+                  <span class="price">${{ product.price }}</span>
+                  <span class="input-group-btn float-right">
+                     {% if product.stock == 0 %}
+                     <button class="btn bg-blue addProductBtn text-white btn-border--blue" disabled>Cannot add</button>
+                     {% else %}
+                     <button class="btn bg-blue addProductBtn text-white btn-border--blue" price="{{ product.price }}"
+                        productId="{{ product.id }}">Add to cart</button>
+                     {% endif %}
+                  </span>
+               </div>
+            </div>
+         </form>
+
+         {% if product.stock > 5 %}
+         <div class="card-stock mt-2 text-center">
+            <span class="text-success font-weight-bold">In stock > {{ product.stock}} pcs</span>
+         </div>
+         {% elif product.stock <= 5 and product.stock > 0 %}
+         <div class="card-stock mt-2 text-center">
+            <span class="text-success font-weight-bold">Less then 5 pcs in stock</span>
+         </div>
+         {% else %}
+         <div class="card-stock mt-2 text-center">
+            <span class="text-danger font-weight-bold">Run out of stock</span>
+         </div>
+         {% endif %}
+      </div>
+   </div>
+</div>

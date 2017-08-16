@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block head_title %}Checkout{% endblock %}
+
+{% block stripe_js%}
+<!-- STRIPE JS -->
+
+<script src="https://js.stripe.com/v2/"></script>
+
+<script type="text/javascript">
+   //<![DATA[
+   Stripe.publishableKey = '{{ publishable }}';
+   //]
+</script>
+<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+{% endblock stripe_js %}
+
+{% block content %}
+
+<div class="link">
+   <a href="/">Home</a> > <a href="{% url 'cart' %}">Shipping Cart</a> > Checkout
+</div>
+
+<div class="container mt-4 pl-4">
+   <h2 class="text-center h1 mb-4">Payment</h2>
+
+   <h6>Shopping Cart Content</h6>
+   <div class="row">
+      {% for item in cart_items %}
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3 pl-0">
+         <h2 class="mb-1">{{ item.product.title }}</h2>
+         <p class="mb-0">Qty: {{ item.quantity }}</p>
+         <p class="mb-0">Price: ${{ item.product.price }} per unit</p>
+         <p>Total price: ${{ item.total_product_price }}</p>
+      </div>
+      {% endfor %}
+   </div>
+
+   {% if stock %}
+   <div class="text-danger">{{ product }}: {{ stock }}, only avaliable {{ quantity }}</div>
+   {% endif %}
+
+   <div class="row">
+      <h2 class="price-total mt-4">Pay in Total: <strong style="color:red">${{ total }}</strong></h2>
+   </div>
+
+   <form role="form" action="{% url 'checkout' %}" id="payment-form" method="POST" class="mt-5">{% csrf_token %}
+      <legend class="text-center">Payment Details</legend>
+
+      <h6>Shipping and Contact Details</h6>
+
+      <div id="credit-card-errors">
+         <div class="alert-message block-message error" id="stripe-error-message"></div>
+      </div>
+      <div class="row checkout-form">
+         {{ order_form | crispy }}
+      </div>
+      <hr>
+
+      <h6>Credit Card details</h6>
+
+      <div class="row checkout-form">
+         {{ payment_form | crispy }}
+      </div>
+
+      <div class="text-center mt-3">
+         <input id="submit_payment_btn" type="submit" class="submit btn bg-blue text-white btn-border--blue mb-4" value="Submit Payment">
+      </div>
+   </form>
+
+   <div class="zk" id="zk-id"></div>
+</div>
+{% endblock %}

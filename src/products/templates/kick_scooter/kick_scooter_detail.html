@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Kick Scooter Detail{% endblock %}
+
+{% block content %}
+
+{% include 'navbar.html' with kick_scooter=True %}
+
+<div class="link">
+   <a href="/">Home</a> > <a href="{% url 'kick-scooter-products' %}">Kick Scooters</a> > Kick Scooter Detail
+</div>
+
+{% include 'product_detail.html' with product_detail=kick_scooter_detail %}
+
+{% endblock %}

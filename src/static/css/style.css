@@ -1,0 +1,306 @@
+/*** SELECTORS ***/
+body {
+   background-color: #fffdf6;
+}
+
+h2 {
+   margin: 0;
+   font-size: 1.4rem;
+}
+
+@media only screen and (max-width: 400px) {
+   h1 {
+      margin-left: 10px;
+   }
+   h1 a {
+      font-size: 22px !important;
+   }
+ }
+
+ .bg-black {
+   background-color: black;
+ }
+
+ .bg-blue {
+   background-color: #052c5c;
+ }
+
+
+/*** NAV BAR ***/
+
+.navbar-brand {
+   font-size: 1.8rem;
+}
+
+.navbar-brand-center {
+   position: absolute;
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+#searchInput {
+   width: 160px;
+}
+
+.nav-link {
+   color: white;
+}
+
+.nav-link:hover {
+   color: #d5d5f7;
+}
+
+.navbar-brand-left {
+   position: absolute;
+}
+
+@media only screen and (max-width: 767.5px) {
+   .navbar-brand-left {
+      left: 50%;
+      transform: translateX(-50%);
+   }
+ }
+
+.navbar-search-center {
+   position: absolute;
+   left: 65%;
+   transform: translateX(-50%);
+}
+
+@media only screen and (max-width: 960px) {
+   .navbar-search-center {
+      left: 53%;
+
+   }
+ }
+
+@media only screen and (max-width: 767.5px) {
+   .navbar-search-center {
+      position: relative;
+      left: 0;
+      transform: none;
+   }
+ }
+
+.navbar-toggler-icon {
+   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E")
+}
+
+
+
+
+/*** MENU - landing page***/
+.img-menu {
+   max-width: 100%;
+   height: calc(100vh - 82.4px);
+   object-fit: cover;
+}
+
+.navigation a {
+   color: white;
+}
+
+.navigation img:hover {
+   opacity: 0.5;
+   transition: 1s ease-in-out;
+}
+
+.element-padding--zero {
+   padding: 0;
+}
+
+.btn-menu-center {
+   bottom: 134px;
+   left: 50%;
+   position: absolute;
+   transform: translateX(-50%);
+}
+
+.cursor-pointer{
+   cursor: pointer;
+}
+
+.active {
+   background: #1468cf;
+}
+
+.badge {
+   font-size: 60%;
+   position: relative;
+   bottom: 10px;
+}
+
+.veiw-height {
+   height: calc(100vh - 56px);
+}
+
+
+/*** Form ***/
+.asteriskField {
+   color: yellowgreen !important;
+   display: none !important;
+}
+
+#hint_id_new_password1 {
+   color: wheat !important;
+}
+
+form .alert ul{
+   margin: 0;
+   padding: 0;
+}
+
+form .alert ul li {
+   list-style: none;
+}
+
+
+.form-border {
+   border: 2px solid white;
+   border-radius: 42px;
+}
+
+
+.form-relative {
+   position: relative;
+   top: 12vh;
+}
+
+.col-form-label {
+   color: white;
+}
+
+.link {
+   margin: 10px 0px 10px 5px;
+}
+
+.link a {
+   color: #052c5c;
+}
+
+.link a:hover {
+   color: #1468cf;
+}
+
+/*** PRODUCT CARDS ***/
+
+#cart {
+   position: absolute;
+   top: 9px;
+   right: 155px;
+}
+
+.removeBtnCart {
+   border: 0;
+   background: inherit;
+   color: red;
+   font-size: 22px;
+   font-weight: bold;
+}
+
+.card {
+   border-width: 2px;
+}
+
+.card-img-top {
+   height: 222px;
+   display: flex;
+   margin: auto;
+   width: auto;
+}
+
+.card-body a {
+   color: black;
+}
+
+.card-price {
+   width: 100%;
+   line-height: 40px;
+}
+
+.price {
+   font-weight: bold;
+   color: black;
+}
+
+.card-stock {
+   width: 100%;
+}
+
+.btn-border--blue {
+   border: 2px solid #336fb8;
+}
+
+.btn:hover {
+   background: #336fb8;
+}
+
+.zoom {
+   animation: zoom 1s ease forwards;
+}
+
+@keyframes zoom{
+   0%{transform: scale(1)}
+   50%{transform: scale(2)}
+   100%{transform: scale(1)}
+}
+
+.cart-body {
+   font-weight: normal;
+   display: none;
+}
+
+@media only screen and (max-width: 767.5px) {
+   .cart-header {
+     display: none;
+   }
+   .cart-body {
+      display: inline;
+   }
+   #cart {
+      right: 30px !important;
+   }
+   .navbar-brand-center {
+      top: -3px;
+   } 
+ }
+
+
+
+ /*** Checkout page ***/
+
+ .price-total {
+   border-top: 1px solid black;
+   border-bottom: 1px solid black;
+   display: inline-block;
+   padding: 5px 0;
+ }
+
+ .checkout-form label {
+   color: black;
+} 
+
+.checkout-form .form-group {
+   margin: 0 5px 0 5px;
+} 
+
+#stripe-error-message {
+   color: red;
+   font-size: 19px;
+}
+
+
+
+/*** BACKGROUND IMG ***/
+
+.bg-login { 
+   background: url(../img/bg_login.jpg) no-repeat center center fixed; 
+ }
+
+ .full-width-bg-img {
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+ }
+

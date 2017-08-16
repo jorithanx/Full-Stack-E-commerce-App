@@ -1,0 +1,35 @@
+<script>
+   // Global variable for ajax.js otherwise the url would be wrong in the file
+   url = '{% url "add-to-cart" 0 %}';
+
+   // AJAX request when click on add product btn
+   $(function () {
+      $('.addProductBtn').on('click', function (e) {
+         let productId = $(this).attr("productId");
+         url = url.replace('0', productId);
+
+         $.ajax({
+            type: 'POST',
+            url: url,
+            data: {
+               productId: productId,
+               quantity: 1,
+               csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+            },
+            success: function (data) {
+               if ($('.badge').length === 0) {
+                  $('#cart').append("<span class='badge badge-warning'>1</span>");
+               } else {
+                  let numberItems = $('.badge').text();
+                  numberItems++;
+                  $('.badge').text(numberItems);
+               }
+            }
+         });
+
+         // Return default id 0
+         url = '{% url "add-to-cart" 0 %}';
+         e.preventDefault();
+      });
+   });
+</script>

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head_title %}eScooters{% endblock %}
+
+{% block content %}
+
+{% include 'navbar.html' with e_scooter=True %}
+
+<div class="link">
+   <a href="/">Home</a> > eScooters
+</div>
+
+<div class="container">
+   <div class="row">
+      {% for products in scooters_products %}
+      {% include 'product.html' with product=products %}
+      {% endfor %}
+   </div>
+</div>
+{% endblock %}
+
+{% block ajax_js%}
+{% include 'jsAjax.html'  %}
+{% endblock ajax_js%}

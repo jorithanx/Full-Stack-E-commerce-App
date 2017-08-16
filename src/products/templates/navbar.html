@@ -1,0 +1,31 @@
+<nav class="container-fluid">
+   <div class="row bg-black">
+      <div class="col-md-4 element-padding--zero">
+         <a href="{% url 'kick-scooter-products' %}">
+            {% if kick_scooter %}
+            <h2 class="text-center text-white active">Kick Scooters</h2>
+            {% else %}
+            <h2 class="text-center text-white">Kick Scooters</h2>
+            {% endif %}
+         </a>
+      </div>
+      <div class="col-md-4 element-padding--zero">
+         <a href="{% url 'e-scooter-products' %}">
+            {% if e_scooter %}
+            <h2 class="text-center text-white active">eScooters</h2>
+            {% else %}
+            <h2 class="text-center text-white">eScooters</h2>
+            {% endif %}
+         </a>
+      </div>
+      <div class="col-md-4 element-padding--zero">
+         <a href="{% url 'kid-scooter-products' %}">
+            {% if kid_scooter %}
+            <h2 class="text-center text-white active">Scooters for kids</h2>
+            {% else %}
+            <h2 class="text-center text-white">Scooters for kids</h2>
+            {% endif %}
+         </a>
+      </div>
+   </div>
+</nav>

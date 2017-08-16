@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Cart{% endblock %}
+
+{% block content %}
+
+<div class="link">
+   <a href="/">Home</a> > Shipping Cart
+</div>
+
+<div class="container">
+   <h2>Shopping Cart</h2>
+   <hr>
+   <div class="row cart-header">
+      <div class="col-md-4">
+         <h5>Items in your cart</h5>
+      </div>
+      <div class="col-md-2">
+         <h5>Item price</h5>
+      </div>
+      <div class="col-md-4">
+         <h5>Quantity</h5>
+      </div>
+      <div class="col-md-2">
+         <h5>Total Price</h5>
+      </div>
+   </div>
+
+   {% for item in cart_items %}
+   <div class="row align-items-center">
+      <div class="col-md-4">
+         <h6><span class="cart-body">Item: </span>{{ item.product.title }}</h6>
+      </div>
+      <div class="col-md-2">
+         <h6><span class="cart-body">Price: </span>${{ item.product.price }}</h6>
+      </div>
+      <div class="col-md-3">
+         <form method="POST" action="{% url 'edit-cart' item.id %}">
+            {% csrf_token %}
+            <div class="input-group mb-3 mt-3">
+               <input name="quantity" type="number" class="form-control" min="0" max="999" value="{{ item.quantity }}"
+                  placeholder="{{ item.quantity }}" aria-label="Quantity" aria-describedby="Quantity to be changed">
+               <span class="input-group-btn">
+                  <button class="btn btn-border--blue" type="submit"><i class="fas fa-tools" aria-hidden="true"></i>
+                     Amend</button>
+               </span>
+            </div>
+         </form>
+      </div>
+      <div class="col-md-1">
+         <form method="POST" action="{% url 'remove-item-cart' item.id %}">
+            {% csrf_token %}
+            <input name="remove" type="hidden" value="0" placeholder="0">
+            <button class="removeBtnCart">X</button>
+         </form>
+      </div>
+      <div class="col-md-1">
+         <h6><span class="cart-body">Total Price: </span>${{ item.total_product_price }}</h6>
+      </div>
+   </div>
+   <hr>
+   {% endfor %}
+
+   <div class="row">
+      <div class="col-4 col-md-2 offset-md-5 text-right border-bottom border-dark">
+         <h5>GRAND TOTAL:</h5>
+      </div>
+      <div class="col-4 col-md-3 text-center border-bottom border-dark">
+         <h5>{{ product_count }} item(s)</h5>
+      </div>
+      <div class="col-4 col-md-2 border-bottom border-dark">
+         <h5>${{ total }}</h5>
+      </div>
+   </div>
+
+   <div class="row">
+      <div class="col-12 col-md-3 offset-md-9 mb-3 text-center">
+         <a href="{% url 'checkout' %}" class="btn bg-blue text-white btn-border--blue mt-3">Proceed to checkout</a>
+      </div>
+   </div>
+</div>
+{% endblock %}
