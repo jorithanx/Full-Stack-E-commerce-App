@@ -30,3 +30,4 @@ $(".addProductBtn").on("click", function () {
       $(".badge").removeClass("zoom");
    }, 1000);
 });
+// hobby-session-2
