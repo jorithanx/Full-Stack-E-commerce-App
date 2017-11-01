@@ -22,3 +22,4 @@ class OrderLineItem(models.Model):
 
    def __str__(self):
       return "{0} {1} @ {2}".format(self.quantity, self.product.title, self.product.price)
+# hobby-session-4
