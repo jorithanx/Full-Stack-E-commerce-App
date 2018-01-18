@@ -63,3 +63,4 @@ class TestView(TestCase):
       page = self.client.get(self.kid_scooter_detail)
       self.assertEqual(page.status_code, 200)
       self.assertTemplateUsed(page, 'kid_scooter/kid_scooter_detail.html')
+# hobby-session-11
