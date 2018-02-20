@@ -35,3 +35,4 @@ class ProductTests(TestCase):
       self.assertEqual(str(test_feature_2), 'feature 2')
       self.assertEqual(str(test_feature_3), 'feature 3')
       self.assertEqual(int(test_price), 150)
+# hobby-session-19
