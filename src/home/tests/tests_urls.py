@@ -7,3 +7,4 @@ class TestUrls(SimpleTestCase):
    def test_home_page_home_url_is_resolved(self):
       url = reverse("home")
       self.assertEqual(resolve(url).func, home_page)
+# hobby-session-26
