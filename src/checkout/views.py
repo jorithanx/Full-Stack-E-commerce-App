@@ -97,3 +97,5 @@ def checkout(request):
 
    return render(request, "checkout.html", context)
 
+
+# hobby-session-38
