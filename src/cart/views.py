@@ -59,3 +59,5 @@ def remove_item_cart(request, id):
 
    return redirect('cart')
 
+
+# hobby-session-41
