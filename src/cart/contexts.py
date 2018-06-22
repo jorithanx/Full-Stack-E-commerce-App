@@ -22,3 +22,5 @@ def cart_contents(request):
    return { 'cart_items': cart_items, 'total': total, 'product_count': product_count }
 
 # hobby-session-8
+
+# hobby-session-42
