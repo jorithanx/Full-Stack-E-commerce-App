@@ -6,3 +6,4 @@ class TestUrls(SimpleTestCase):
    def test_searches_url_is_resolved(self):
       url = reverse("searches")
       self.assertEqual(resolve(url).func, searches)
+# hobby-session-43
