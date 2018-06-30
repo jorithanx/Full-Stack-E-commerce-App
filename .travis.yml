@@ -8,3 +8,4 @@ env:
 script:
   - cd src
   - python manage.py test
+# hobby-session-44
