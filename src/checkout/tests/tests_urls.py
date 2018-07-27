@@ -6,3 +6,4 @@ class TestUrls(SimpleTestCase):
    def test_checkout_url_is_resolved(self):
       url = reverse("checkout")
       self.assertEqual(resolve(url).func, checkout)
+# hobby-session-58
