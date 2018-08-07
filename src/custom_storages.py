@@ -7,3 +7,5 @@ class StaticStrorage(S3Boto3Storage):
 class MediaStorage(S3Boto3Storage):
     location = settings.MEDIAFILES_LOCATION
 # hobby-session-31
+
+# hobby-session-62
