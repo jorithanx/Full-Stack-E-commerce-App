@@ -25,3 +25,5 @@ urlpatterns = [
     path('checkout/', include('checkout.urls')),
     path('admin/', admin.site.urls),
 ]
+
+# hobby-session-68
