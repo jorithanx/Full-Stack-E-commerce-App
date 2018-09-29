@@ -21,3 +21,5 @@ class TestView(TestCase):
    def test_get_logout_page(self):
       page = self.client.get(self.logout)
       self.assertEqual(page.status_code, 302)
+
+# hobby-session-83
