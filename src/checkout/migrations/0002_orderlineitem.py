@@ -24,3 +24,5 @@ class Migration(migrations.Migration):
     ]
 
 # hobby-session-27
+
+# hobby-session-82
