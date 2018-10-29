@@ -16,3 +16,5 @@ class Migration(migrations.Migration):
             field=models.ImageField(upload_to='images/'),
         ),
     ]
+
+# hobby-session-88
