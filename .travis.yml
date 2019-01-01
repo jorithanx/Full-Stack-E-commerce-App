@@ -9,3 +9,5 @@ script:
   - cd src
   - python manage.py test
 # hobby-session-44
+
+# hobby-session-98
