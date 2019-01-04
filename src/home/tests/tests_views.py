@@ -8,3 +8,5 @@ class TestView(TestCase):
       self.assertEqual(page.status_code, 200)
       self.assertTemplateUsed(page, 'home.html')
 # hobby-session-70
+
+# hobby-session-101
