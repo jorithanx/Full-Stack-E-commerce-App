@@ -6,3 +6,5 @@ urlpatterns = [
     path('', home_page, name="home"),
 ]
 # hobby-session-87
+
+# hobby-session-106
