@@ -6,3 +6,4 @@ class TestView(TestCase):
       page = self.client.get("/search/")
       self.assertEqual(page.status_code, 200)
       self.assertTemplateUsed(page, 'search.html')
+# hobby-session-123
