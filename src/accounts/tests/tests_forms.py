@@ -37,3 +37,5 @@ class TestRegistrationForms(TestCase):
       self.assertFalse(form.is_valid())
       self.assertEquals(len(form.errors), 3)
 # hobby-session-81
+
+# hobby-session-135
